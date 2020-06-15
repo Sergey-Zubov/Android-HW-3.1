@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Система мониторинга здоровья</string>
+    <string name="main_activity_name">Комплексная система мониторинга здоровья (Зубов)</string>
+    <string name="enter_fio">Введите ФИО пациента</string>
+    <string name="prompt_fio">ФИО</string>
+    <string name="enter_date_of_birth">Введите дату рождения пациента</string>
+    <string name="prompt_date_of_birth">Дата рождения</string>
+    <string name="btn_save">Сохранить</string>
+    <string name="btn_pressure">Показатели давления</string>
+    <string name="btn_health">Показатели здоровья</string>
+</resources>
