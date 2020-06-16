@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_pressure_activity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:logo="@drawable/ic_h_m">
+
+        <TextView
+            android:id="@+id/toolbar_pressure_activity_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:text="@string/pressure_activity_name"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/toolbar_pressure_activity"
+            app:layout_constraintStart_toStartOf="@+id/toolbar_pressure_activity" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <EditText
+        android:id="@+id/edit_lower_pressure"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/prompt_lower_pressure"
+        android:inputType="number"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/edit_upper_pressure"
+        app:layout_constraintStart_toStartOf="@+id/edit_upper_pressure"
+        app:layout_constraintTop_toBottomOf="@+id/edit_upper_pressure" />
+
+    <Button
+        android:id="@+id/btn_pressure_save"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/btn_corner"
+        android:backgroundTint="@color/colorAccent"
+        android:onClick="btnSavePressureOnClick"
+        android:text="@string/btn_save"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/edit_pulse"
+        app:layout_constraintStart_toStartOf="@+id/edit_pulse"
+        app:layout_constraintTop_toBottomOf="@+id/tachycardia_no" />
+
+    <TextView
+        android:id="@+id/pulse"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="@string/enter_pulse"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/edit_pulse"
+        app:layout_constraintEnd_toEndOf="@+id/edit_pulse"
+        app:layout_constraintStart_toStartOf="@+id/edit_pulse" />
+
+    <TextView
+        android:id="@+id/lower_pressure"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="@string/enter_lower_pressure"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/edit_lower_pressure"
+        app:layout_constraintEnd_toEndOf="@+id/edit_lower_pressure"
+        app:layout_constraintStart_toStartOf="@+id/edit_lower_pressure" />
+
+    <TextView
+        android:id="@+id/tachycardia"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="@string/enter_tachycardia"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/tachycardia_yes"
+        app:layout_constraintStart_toStartOf="@+id/tachycardia_yes" />
+
+    <EditText
+        android:id="@+id/edit_pulse"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/prompt_pulse"
+        android:inputType="number"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/edit_lower_pressure"
+        app:layout_constraintStart_toStartOf="@+id/edit_lower_pressure"
+        app:layout_constraintTop_toBottomOf="@+id/edit_lower_pressure" />
+
+    <TextView
+        android:id="@+id/upper_pressure"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="@string/enter_upper_pressure"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/edit_upper_pressure"
+        app:layout_constraintEnd_toEndOf="@+id/edit_upper_pressure"
+        app:layout_constraintStart_toStartOf="@+id/edit_upper_pressure" />
+
+    <TextView
+        android:id="@+id/date_time_measurement"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="@string/enter_date_time_measurement"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/edit_date_time_measurement"
+        app:layout_constraintEnd_toEndOf="@+id/edit_date_time_measurement"
+        app:layout_constraintStart_toStartOf="@+id/edit_date_time_measurement" />
+
+    <EditText
+        android:id="@+id/edit_date_time_measurement"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="110dp"
+        android:layout_marginEnd="20dp"
+        android:autofillHints=""
+        android:ems="20"
+        android:hint="@string/prompt_date_time_measurement"
+        android:inputType="datetime"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edit_upper_pressure"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/prompt_upper_pressure"
+        android:inputType="number"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/edit_date_time_measurement"
+        app:layout_constraintStart_toStartOf="@+id/edit_date_time_measurement"
+        app:layout_constraintTop_toBottomOf="@+id/edit_date_time_measurement" />
+
+    <CheckBox
+        android:id="@+id/tachycardia_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="@string/tachycardia_no"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/tachycardia_yes"
+        app:layout_constraintTop_toBottomOf="@+id/tachycardia_yes" />
+
+    <CheckBox
+        android:id="@+id/tachycardia_yes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="@string/tachycardia_yes"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/edit_pulse"
+        app:layout_constraintTop_toBottomOf="@+id/edit_pulse" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

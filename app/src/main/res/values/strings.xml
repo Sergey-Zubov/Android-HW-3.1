@@ -1,11 +1,24 @@
 <resources>
     <string name="app_name">Система мониторинга здоровья</string>
     <string name="main_activity_name">Комплексная система мониторинга здоровья (Зубов)</string>
+    <string name="pressure_activity_name">Показатели давления</string>
+    <string name="vitals_activity_name">Жизненные показатели</string>
     <string name="enter_fio">Введите ФИО пациента</string>
     <string name="prompt_fio">ФИО</string>
-    <string name="enter_date_of_birth">Введите дату рождения пациента</string>
-    <string name="prompt_date_of_birth">Дата рождения</string>
+    <string name="enter_date_of_birth">Введите возраст пациента</string>
+    <string name="prompt_date_of_birth">Возраст пациента</string>
     <string name="btn_save">Сохранить</string>
     <string name="btn_pressure">Показатели давления</string>
     <string name="btn_health">Показатели здоровья</string>
+    <string name="enter_date_time_measurement">Введите дату и время замера</string>
+    <string name="prompt_date_time_measurement">Дата и время</string>
+    <string name="enter_upper_pressure">Введите верхнее давление</string>
+    <string name="prompt_upper_pressure">Верхнее давление</string>
+    <string name="enter_lower_pressure">Введите нижнее давление</string>
+    <string name="prompt_lower_pressure">Нижнее давление</string>
+    <string name="enter_pulse">Введите пульс</string>
+    <string name="prompt_pulse">Пульс</string>
+    <string name="enter_tachycardia">Наличие тахикардии</string>
+    <string name="tachycardia_yes">Да</string>
+    <string name="tachycardia_no">Нет</string>
 </resources>
