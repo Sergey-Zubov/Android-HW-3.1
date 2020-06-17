@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarVitalsActivity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:logo="@drawable/ic_h_m">
+
+        <TextView
+            android:id="@+id/vitalsActivityName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:text="@string/vitals_activity_name"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/toolbar_pressure_activity"
+            app:layout_constraintStart_toStartOf="@+id/toolbar_pressure_activity" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <EditText
+        android:id="@+id/editWeight"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="20dp"
+        android:autofillHints=""
+        android:hint="@string/prompt_weight"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarVitalsActivity" />
+
+    <EditText
+        android:id="@+id/editSteps"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:autofillHints=""
+        android:hint="@string/prompt_steps"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/editWeight"
+        app:layout_constraintStart_toStartOf="@+id/editWeight"
+        app:layout_constraintTop_toBottomOf="@+id/editWeight" />
+
+    <Button
+        android:id="@+id/btnVitalsSave"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/btn_corner"
+        android:backgroundTint="@color/colorAccent"
+        android:onClick="btnSaveWeightAndStepsOnClick"
+        android:text="@string/btn_save"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/editSteps"
+        app:layout_constraintStart_toStartOf="@+id/editSteps" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

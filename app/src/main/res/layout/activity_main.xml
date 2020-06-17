@@ -29,23 +29,13 @@
             app:layout_constraintStart_toStartOf="@+id/toolbar_pressure_activity" />
     </androidx.appcompat.widget.Toolbar>
 
-    <TextView
-        android:id="@+id/fio_patient"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:text="@string/enter_fio"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/enter_fio_patient"
-        app:layout_constraintEnd_toEndOf="@+id/enter_fio_patient"
-        app:layout_constraintStart_toStartOf="@+id/enter_fio_patient" />
 
     <EditText
-        android:id="@+id/enter_fio_patient"
+        android:id="@+id/editFioPatient"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="20dp"
         android:autofillHints=""
         android:ems="30"
@@ -55,51 +45,41 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_pressure_activity" />
 
-    <TextView
-        android:id="@+id/age_patient"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:text="@string/enter_date_of_birth"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/enter_age_patient"
-        app:layout_constraintEnd_toEndOf="@+id/enter_age_patient"
-        app:layout_constraintStart_toStartOf="@+id/enter_age_patient" />
 
     <EditText
-        android:id="@+id/enter_age_patient"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="70dp"
-        android:ems="10"
-        android:hint="@string/prompt_date_of_birth"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/enter_fio_patient"
-        app:layout_constraintStart_toStartOf="@+id/enter_fio_patient"
-        app:layout_constraintTop_toBottomOf="@+id/enter_fio_patient"
-        android:autofillHints="" />
-
-    <Button
-        android:id="@+id/btn_pressure_save"
+        android:id="@+id/editAgePatient"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/prompt_age"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/editFioPatient"
+        app:layout_constraintStart_toStartOf="@+id/editFioPatient"
+        app:layout_constraintTop_toBottomOf="@+id/editFioPatient" />
+
+    <Button
+        android:id="@+id/btnPatientSave"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:background="@drawable/btn_corner"
         android:backgroundTint="@color/colorAccent"
         android:onClick="btnSaveFioAndAgeOnClick"
         android:text="@string/btn_save"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/enter_age_patient"
-        app:layout_constraintStart_toStartOf="@+id/enter_age_patient"
-        app:layout_constraintTop_toBottomOf="@+id/enter_age_patient" />
+        app:layout_constraintEnd_toEndOf="@+id/editAgePatient"
+        app:layout_constraintStart_toStartOf="@+id/editAgePatient"
+        app:layout_constraintTop_toBottomOf="@+id/editAgePatient" />
 
     <Button
-        android:id="@+id/btn_pressure"
+        android:id="@+id/btnPressure"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="40dp"
         android:background="@drawable/btn_corner"
         android:backgroundTint="@color/colorAccent"
         android:onClick="btnPressureOnClick"
@@ -110,16 +90,16 @@
         android:text="@string/btn_pressure"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btn_vitals"
+        app:layout_constraintEnd_toStartOf="@+id/btnVitals"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btn_vitals"
+        android:id="@+id/btnVitals"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="40dp"
         android:background="@drawable/btn_corner"
         android:backgroundTint="@color/colorAccent"
         android:onClick="btnVitalsOnClick"
@@ -131,6 +111,6 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_pressure" />
+        app:layout_constraintStart_toEndOf="@+id/btnPressure" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
