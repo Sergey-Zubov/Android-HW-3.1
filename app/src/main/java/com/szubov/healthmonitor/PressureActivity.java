@@ -1,6 +1,7 @@
 package com.szubov.healthmonitor;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -21,7 +22,7 @@ public class PressureActivity extends AppCompatActivity {
     private EditText mEditPulse;
     private CheckBox mCheckBoxTachycardiaNo;
     private CheckBox mCheckBoxTachycardiaYes;
-
+    private static final String TAG = "MyApp";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +38,14 @@ public class PressureActivity extends AppCompatActivity {
         mCheckBoxTachycardiaNo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
-                mCheckBoxTachycardiaYes.setChecked(false);
-                mCheckBoxTachycardiaNo.setChecked(isChecked);
+                Log.i(TAG, "CheckBoxNo flag has changed in PressureActivity");
+                try {
+                    mCheckBoxTachycardiaYes.setChecked(false);
+                    mCheckBoxTachycardiaNo.setChecked(isChecked);
+                } catch (Exception ex) {
+                    Log.e(TAG, "CheckBoxNo exception in PressureActivity", ex);
+                }
+
 
             }
         });
@@ -46,14 +53,21 @@ public class PressureActivity extends AppCompatActivity {
         mCheckBoxTachycardiaYes.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                mCheckBoxTachycardiaNo.setChecked(false);
-                mCheckBoxTachycardiaYes.setChecked(isChecked);
+                Log.i(TAG, "CheckBoxYes flag has changed in PressureActivity");
+                try {
+                    mCheckBoxTachycardiaNo.setChecked(false);
+                    mCheckBoxTachycardiaYes.setChecked(isChecked);
+                } catch (Exception ex) {
+                    Log.e(TAG, "CheckBoxYes exception in PressureActivity", ex);
+                }
+
             }
         });
     }
 
 
     public void btnSavePressureOnClick(View view) {
+        Log.i(TAG, "User clicked save in PressureActivity");
         try {
             short mUpperPressure = Short.parseShort(mEditUpperPressure.getText().toString());
             short mLowerPressure = Short.parseShort(mEditLowerPressure.getText().toString());
@@ -77,11 +91,12 @@ public class PressureActivity extends AppCompatActivity {
             mEditPulse.setText(null);
             mCheckBoxTachycardiaNo.setChecked(true);
 
-            Toast.makeText(this, "Показатели давления сохранены!",
+            Toast.makeText(this, R.string.btn_save_pressure_activity,
                     Toast.LENGTH_LONG).show();
 
-        } catch (NumberFormatException e) {
-            Toast.makeText(this, "Неверный формат данных!", Toast.LENGTH_LONG).show();
+        } catch (NumberFormatException ex) {
+            Toast.makeText(this, R.string.btn_save_exception, Toast.LENGTH_LONG).show();
+            Log.e(TAG, "Btn save exception in PressureActivity", ex);
         }
 
     }

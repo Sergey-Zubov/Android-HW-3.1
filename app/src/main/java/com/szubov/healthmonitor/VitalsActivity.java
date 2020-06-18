@@ -1,6 +1,7 @@
 package com.szubov.healthmonitor;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -12,6 +13,7 @@ public class VitalsActivity extends AppCompatActivity {
 
     private EditText mEditWeight;
     private EditText mEditSteps;
+    private static final String TAG = "MyApp";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +26,7 @@ public class VitalsActivity extends AppCompatActivity {
     }
 
     public void btnSaveWeightAndStepsOnClick(View view) {
+        Log.i(TAG, "User clicked save in VitalsActivity");
         try {
             float mWeight = Float.parseFloat(mEditWeight.getText().toString());
             int mSteps = Integer.parseInt(mEditSteps.getText().toString());
@@ -34,9 +37,10 @@ public class VitalsActivity extends AppCompatActivity {
             mEditWeight.setText(null);
             mEditSteps.setText(null);
 
-            Toast.makeText(this, "Жизненные показатели сохранены!", Toast.LENGTH_LONG).show();
-        } catch (NumberFormatException e) {
-            Toast.makeText(this, "Неверный формат данных!!", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.btn_save_vitals_activity, Toast.LENGTH_LONG).show();
+        } catch (NumberFormatException ex) {
+            Toast.makeText(this, R.string.btn_save_exception, Toast.LENGTH_LONG).show();
+            Log.e(TAG, "Btn save exception in VitalsActivity", ex);
         }
 
     }

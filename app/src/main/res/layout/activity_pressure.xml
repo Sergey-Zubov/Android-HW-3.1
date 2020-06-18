@@ -35,7 +35,7 @@
         android:layout_marginTop="80dp"
         android:layout_marginEnd="20dp"
         android:autofillHints=""
-        android:ems="10"
+        android:ems="3"
         android:hint="@string/prompt_upper_pressure"
         android:inputType="textPersonName"
         android:textSize="18sp"
@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:autofillHints=""
-        android:ems="10"
+        android:ems="3"
         android:hint="@string/prompt_lower_pressure"
         android:inputType="textPersonName"
         android:textSize="18sp"
@@ -64,7 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:autofillHints=""
-        android:ems="10"
+        android:ems="3"
         android:hint="@string/prompt_pulse"
         android:inputType="textPersonName"
         android:textSize="18sp"
@@ -78,24 +78,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="@string/presence_tachycardia"
+        android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/editPulse"
         app:layout_constraintStart_toStartOf="@+id/editPulse"
         app:layout_constraintTop_toBottomOf="@+id/editPulse" />
 
-    <Button
-        android:id="@+id/btnPressureSave"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:background="@drawable/btn_corner"
-        android:backgroundTint="@color/colorAccent"
-        android:onClick="btnSavePressureOnClick"
-        android:text="@string/btn_save"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/tachycardia"
-        app:layout_constraintStart_toStartOf="@+id/tachycardia" />
 
     <CheckBox
         android:id="@+id/checkBoxTachycardiaNo"
@@ -117,5 +105,19 @@
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/checkBoxTachycardiaNo"
         app:layout_constraintTop_toBottomOf="@+id/checkBoxTachycardiaNo" />
+
+    <Button
+        android:id="@+id/btnPressureSave"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/btn_corner"
+        android:backgroundTint="@color/colorAccent"
+        android:onClick="btnSavePressureOnClick"
+        android:text="@string/btn_save"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tachycardia"
+        app:layout_constraintStart_toStartOf="@+id/tachycardia" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

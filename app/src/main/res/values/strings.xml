@@ -16,4 +16,8 @@
     <string name="cb_tachycardia_no">Нет</string>
     <string name="prompt_weight">Вес</string>
     <string name="prompt_steps">Количество шагов</string>
+    <string name="btn_save_main_activity_yes">"Пациент внесен в базу!"</string>
+    <string name="btn_save_exception">"Неверный формат данных!"</string>
+    <string name="btn_save_pressure_activity">"Показатели давления сохранены!"</string>
+    <string name="btn_save_vitals_activity">"Жизненные показатели сохранены!"</string>
 </resources>
