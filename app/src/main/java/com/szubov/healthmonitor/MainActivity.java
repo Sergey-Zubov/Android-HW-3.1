@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,10 +24,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btnSaveFioAndAgeOnClick(View view) {
-        short agePatient = Short.parseShort(mEditAgePatient.getText().toString());
-        Patient patient = new Patient(mEditFioPatient.getText().toString(), agePatient);
-        mEditFioPatient.setText(null);
-        mEditAgePatient.setText(null);
+        try {
+            short agePatient = Short.parseShort(mEditAgePatient.getText().toString());
+            Patient patient = new Patient(mEditFioPatient.getText().toString(), agePatient);
+
+            mEditFioPatient.setText(null);
+            mEditAgePatient.setText(null);
+
+            Toast.makeText(this, "Пациент внесен в базу!", Toast.LENGTH_LONG).show();
+        } catch (NumberFormatException e) {
+            Toast.makeText(this, "Неверный формат данных!", Toast.LENGTH_LONG).show();
+        }
+
     }
 
 

@@ -14,12 +14,11 @@ public class PatientPressure {
         return dateTimeMeasurement;
     }
 
-    public PatientPressure(short upperPressure, short lowerPressure, short pulse, boolean tachycardia, String dateTimeMeasurement) {
+    public PatientPressure(short upperPressure, short lowerPressure, short pulse, boolean tachycardia) {
         this.upperPressure = upperPressure;
         this.lowerPressure = lowerPressure;
         this.pulse = pulse;
         this.tachycardia = tachycardia;
-        this.dateTimeMeasurement = dateTimeMeasurement;
     }
 
     @Override

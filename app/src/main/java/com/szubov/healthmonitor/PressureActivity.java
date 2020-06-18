@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -37,6 +38,8 @@ public class PressureActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
                 mCheckBoxTachycardiaYes.setChecked(false);
+                mCheckBoxTachycardiaNo.setChecked(isChecked);
+
             }
         });
 
@@ -44,23 +47,42 @@ public class PressureActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 mCheckBoxTachycardiaNo.setChecked(false);
+                mCheckBoxTachycardiaYes.setChecked(isChecked);
             }
         });
     }
 
 
     public void btnSavePressureOnClick(View view) {
-        short mUpperPressure = Short.parseShort(mEditUpperPressure.getText().toString());
-        short mLowerPressure = Short.parseShort(mEditLowerPressure.getText().toString());
-        short mPulse = Short.parseShort(mEditPulse.getText().toString());
-        boolean mTachycardia;
+        try {
+            short mUpperPressure = Short.parseShort(mEditUpperPressure.getText().toString());
+            short mLowerPressure = Short.parseShort(mEditLowerPressure.getText().toString());
+            short mPulse = Short.parseShort(mEditPulse.getText().toString());
+            boolean mTachycardia = false;
 
-        mTachycardia = !mCheckBoxTachycardiaNo.isChecked();
+            if (!mCheckBoxTachycardiaNo.isChecked()) {
+                mTachycardia = true;
+            }
 
-        DateFormat dateTimeFormat = new SimpleDateFormat("HH:mm yyyy-MM-dd", Locale.getDefault());
-        String dateTime = dateTimeFormat.format(new Date());
+            DateFormat dateTimeFormat = new SimpleDateFormat("HH:mm yyyy-MM-dd",
+                    Locale.getDefault());
+            String dateTime = dateTimeFormat.format(new Date());
 
-        Map<String, PatientPressure> patientPressureMap = new TreeMap<>();
-        patientPressureMap.put(dateTime, (new PatientPressure(mUpperPressure, mLowerPressure, mPulse, mTachycardia, dateTime)));
+            Map<String, PatientPressure> patientPressureMap = new TreeMap<>();
+            patientPressureMap.put(dateTime, (new PatientPressure(mUpperPressure, mLowerPressure,
+                    mPulse, mTachycardia)));
+
+            mEditUpperPressure.setText(null);
+            mEditLowerPressure.setText(null);
+            mEditPulse.setText(null);
+            mCheckBoxTachycardiaNo.setChecked(true);
+
+            Toast.makeText(this, "Показатели давления сохранены!",
+                    Toast.LENGTH_LONG).show();
+
+        } catch (NumberFormatException e) {
+            Toast.makeText(this, "Неверный формат данных!", Toast.LENGTH_LONG).show();
+        }
+
     }
 }

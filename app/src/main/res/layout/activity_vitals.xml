@@ -36,7 +36,7 @@
         android:layout_marginEnd="20dp"
         android:autofillHints=""
         android:hint="@string/prompt_weight"
-        android:inputType="number"
+        android:inputType="number|numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbarVitalsActivity" />
@@ -57,15 +57,15 @@
         android:id="@+id/btnVitalsSave"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/btn_corner"
         android:backgroundTint="@color/colorAccent"
         android:onClick="btnSaveWeightAndStepsOnClick"
         android:text="@string/btn_save"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/editSteps"
-        app:layout_constraintStart_toStartOf="@+id/editSteps" />
+        app:layout_constraintStart_toStartOf="@+id/editSteps"
+        app:layout_constraintTop_toBottomOf="@+id/editSteps" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
