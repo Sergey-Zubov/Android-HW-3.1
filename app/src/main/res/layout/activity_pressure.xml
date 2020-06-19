@@ -23,8 +23,8 @@
             android:text="@string/pressure_activity_name"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@+id/toolbar_pressure_activity"
-            app:layout_constraintStart_toStartOf="@+id/toolbar_pressure_activity" />
+            app:layout_constraintBottom_toBottomOf="@+id/toolbarPressureActivity"
+            app:layout_constraintStart_toStartOf="@+id/toolbarPressureActivity" />
     </androidx.appcompat.widget.Toolbar>
 
     <EditText
@@ -34,43 +34,43 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="80dp"
         android:layout_marginEnd="20dp"
-        android:autofillHints=""
         android:ems="3"
         android:hint="@string/prompt_upper_pressure"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarPressureActivity" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbarPressureActivity"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/editLowerPressure"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:autofillHints=""
         android:ems="3"
         android:hint="@string/prompt_lower_pressure"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/editUpperPressure"
         app:layout_constraintStart_toStartOf="@+id/editUpperPressure"
-        app:layout_constraintTop_toBottomOf="@+id/editUpperPressure" />
+        app:layout_constraintTop_toBottomOf="@+id/editUpperPressure"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/editPulse"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:autofillHints=""
         android:ems="3"
         android:hint="@string/prompt_pulse"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/editLowerPressure"
         app:layout_constraintStart_toStartOf="@+id/editLowerPressure"
-        app:layout_constraintTop_toBottomOf="@+id/editLowerPressure" />
+        app:layout_constraintTop_toBottomOf="@+id/editLowerPressure"
+        android:importantForAutofill="no" />
 
     <TextView
         android:id="@+id/tachycardia"

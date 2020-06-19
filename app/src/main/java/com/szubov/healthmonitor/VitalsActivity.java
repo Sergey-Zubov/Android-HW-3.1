@@ -27,9 +27,16 @@ public class VitalsActivity extends AppCompatActivity {
 
     public void btnSaveWeightAndStepsOnClick(View view) {
         Log.i(TAG, "User clicked save in VitalsActivity");
+
+        if (Short.parseShort(mEditSteps.getText().toString()) >= 32767) {
+            Toast.makeText(this, R.string.field_steps_contains_invalid_values,
+                    Toast.LENGTH_LONG).show();
+            Log.e(TAG, "Field steps contains too big number in VitalsActivity");
+        }
+
         try {
             float mWeight = Float.parseFloat(mEditWeight.getText().toString());
-            int mSteps = Integer.parseInt(mEditSteps.getText().toString());
+            short mSteps = Short.parseShort(mEditSteps.getText().toString());
 
             Set<PatientVitals> patientVitalsSet = new HashSet<>();
             patientVitalsSet.add(new PatientVitals(mWeight, mSteps));

@@ -68,6 +68,13 @@ public class PressureActivity extends AppCompatActivity {
 
     public void btnSavePressureOnClick(View view) {
         Log.i(TAG, "User clicked save in PressureActivity");
+
+        if (mEditUpperPressure.length() < 1 || mEditLowerPressure.length() < 1 ||
+                mEditPulse.length() < 1) {
+            Toast.makeText(this, R.string.field_is_empty, Toast.LENGTH_LONG).show();
+            Log.e(TAG, "Not all fields are filled in PressureActivity");
+        }
+
         try {
             short mUpperPressure = Short.parseShort(mEditUpperPressure.getText().toString());
             short mLowerPressure = Short.parseShort(mEditLowerPressure.getText().toString());

@@ -27,6 +27,21 @@ public class MainActivity extends AppCompatActivity {
 
     public void btnSaveFioAndAgeOnClick(View view) {
         Log.i(TAG, "User clicked save in MainActivity");
+
+        if (mEditFioPatient.length() < 1 || mEditAgePatient.length() < 1) {
+            Toast.makeText(this, R.string.field_is_empty, Toast.LENGTH_LONG).show();
+            Log.e(TAG, "Not all fields are filled in MainActivity");
+
+        } else if (!mEditFioPatient.getText().toString().contains("[а-яА-Я]\\s\\.")) {
+            Toast.makeText(this, R.string.field_fio_contains_invalid_values,
+                    Toast.LENGTH_LONG).show();
+            Log.e(TAG, "Field FIO contains invalid values in MainActivity");
+        } else if (mEditFioPatient.length() > 30 || mEditAgePatient.length() > 3) {
+            Toast.makeText(this, R.string.field_contains_too_big_value, Toast.LENGTH_LONG).show();
+            Log.e(TAG, "Field contains to big value in MainActivity");
+
+        }
+
         try {
             short agePatient = Short.parseShort(mEditAgePatient.getText().toString());
             Patient patient = new Patient(mEditFioPatient.getText().toString(), agePatient);
@@ -45,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void btnPressureOnClick(View view) {
         Log.i(TAG, "User clicked btn PressureActivity in MainActivity");
+
         try {
             Intent intent = new Intent(MainActivity.this, PressureActivity.class);
             startActivity(intent);
@@ -57,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void btnVitalsOnClick(View view) {
         Log.i(TAG, "User clicked btn VitalsActivity in MainActivity");
+
         try {
             Intent intent = new Intent(MainActivity.this, VitalsActivity.class);
             startActivity(intent);

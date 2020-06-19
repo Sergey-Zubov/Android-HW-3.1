@@ -20,4 +20,11 @@
     <string name="btn_save_exception">"Неверный формат данных!"</string>
     <string name="btn_save_pressure_activity">"Показатели давления сохранены!"</string>
     <string name="btn_save_vitals_activity">"Жизненные показатели сохранены!"</string>
+    <string name="field_is_empty">"Заполните все поля!"</string>
+    <string name="field_fio_contains_invalid_values">"В поле "ФИО" внесены недопустимые символы!"
+    </string>
+    <string name="field_steps_contains_invalid_values">"В поле "Количество шагов" слишком большое число!"
+    </string>
+    <string name="field_contains_too_big_value">"Поле содержит слишком много символов!"
+    </string>
 </resources>
