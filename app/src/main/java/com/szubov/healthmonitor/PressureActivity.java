@@ -1,5 +1,6 @@
 package com.szubov.healthmonitor;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -69,42 +70,76 @@ public class PressureActivity extends AppCompatActivity {
     public void btnSavePressureOnClick(View view) {
         Log.i(TAG, "User clicked save in PressureActivity");
 
-        if (mEditUpperPressure.length() < 1 || mEditLowerPressure.length() < 1 ||
-                mEditPulse.length() < 1) {
-            Toast.makeText(this, R.string.field_is_empty, Toast.LENGTH_LONG).show();
-            Log.e(TAG, "Not all fields are filled in PressureActivity");
+        while (true) {
+            if (mEditUpperPressure.length() < 1 || mEditLowerPressure.length() < 1 ||
+                    mEditPulse.length() < 1) {
+                Toast.makeText(this, R.string.field_is_empty, Toast.LENGTH_LONG).show();
+                Log.e(TAG, "Not all fields are filled in PressureActivity");
+                break;
+            } else if (mEditUpperPressure.length() > 3 || mEditLowerPressure.length() > 3 ||
+                    mEditPulse.length() > 3) {
+                Toast.makeText(this, R.string.field_contains_too_big_value,
+                        Toast.LENGTH_LONG).show();
+                Log.e(TAG, "Field contains too big number in PressureActivity");
+                break;
+            } else {
+                try {
+                    short mUpperPressure = Short.parseShort(mEditUpperPressure.getText()
+                            .toString());
+                    short mLowerPressure = Short.parseShort(mEditLowerPressure.getText()
+                            .toString());
+                    short mPulse = Short.parseShort(mEditPulse.getText().toString());
+                    boolean mTachycardia = false;
+
+                    if (!mCheckBoxTachycardiaNo.isChecked()) {
+                        mTachycardia = true;
+                    }
+
+                    DateFormat dateTimeFormat = new SimpleDateFormat(getString
+                            (R.string.date_time_pattern), Locale.getDefault());
+                    String dateTime = dateTimeFormat.format(new Date());
+
+                    Map<String, PatientPressure> patientPressureMap = new TreeMap<>();
+                    patientPressureMap.put(dateTime, (new PatientPressure(mUpperPressure,
+                            mLowerPressure,
+                            mPulse, mTachycardia)));
+
+                    mEditUpperPressure.setText(null);
+                    mEditLowerPressure.setText(null);
+                    mEditPulse.setText(null);
+                    mCheckBoxTachycardiaNo.setChecked(true);
+
+                    Toast.makeText(this, R.string.btn_save_pressure_activity,
+                            Toast.LENGTH_LONG).show();
+                } catch (NumberFormatException ex) {
+                    Toast.makeText(this, R.string.btn_save_exception,
+                            Toast.LENGTH_LONG).show();
+                    Log.e(TAG, "Btn save exception in PressureActivity", ex);
+                }
+            }
+            break;
         }
+    }
+
+    public void btnMainFromPressureActivityOnClick(View view) {
+        Log.i(TAG, "User clicked btn MainActivity in PressureActivity");
 
         try {
-            short mUpperPressure = Short.parseShort(mEditUpperPressure.getText().toString());
-            short mLowerPressure = Short.parseShort(mEditLowerPressure.getText().toString());
-            short mPulse = Short.parseShort(mEditPulse.getText().toString());
-            boolean mTachycardia = false;
-
-            if (!mCheckBoxTachycardiaNo.isChecked()) {
-                mTachycardia = true;
-            }
-
-            DateFormat dateTimeFormat = new SimpleDateFormat("HH:mm yyyy-MM-dd",
-                    Locale.getDefault());
-            String dateTime = dateTimeFormat.format(new Date());
-
-            Map<String, PatientPressure> patientPressureMap = new TreeMap<>();
-            patientPressureMap.put(dateTime, (new PatientPressure(mUpperPressure, mLowerPressure,
-                    mPulse, mTachycardia)));
-
-            mEditUpperPressure.setText(null);
-            mEditLowerPressure.setText(null);
-            mEditPulse.setText(null);
-            mCheckBoxTachycardiaNo.setChecked(true);
-
-            Toast.makeText(this, R.string.btn_save_pressure_activity,
-                    Toast.LENGTH_LONG).show();
-
-        } catch (NumberFormatException ex) {
-            Toast.makeText(this, R.string.btn_save_exception, Toast.LENGTH_LONG).show();
-            Log.e(TAG, "Btn save exception in PressureActivity", ex);
+            Intent intent = new Intent(PressureActivity.this, MainActivity.class);
+            startActivity(intent);
+        } catch (Exception ex) {
+            Log.e(TAG, "Exception in PressureActivity, transition btn to MainActivity", ex);
         }
+    }
 
+    public void btnVitalsFromPressureActivityOnClick(View view) {
+        Log.i(TAG, "User clicked btn VitalsActivity in PressureActivity");
+
+        try {
+            Intent intent = new Intent(PressureActivity.this, VitalsActivity.class);
+            startActivity(intent);
+        } catch (Exception ex) {
+            Log.e(TAG, "Exception in PressureActivity, transition btn to VitalsActivity", ex);
+        }
     }
 }

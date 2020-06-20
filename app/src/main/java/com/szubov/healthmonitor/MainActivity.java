@@ -28,33 +28,43 @@ public class MainActivity extends AppCompatActivity {
     public void btnSaveFioAndAgeOnClick(View view) {
         Log.i(TAG, "User clicked save in MainActivity");
 
-        if (mEditFioPatient.length() < 1 || mEditAgePatient.length() < 1) {
-            Toast.makeText(this, R.string.field_is_empty, Toast.LENGTH_LONG).show();
-            Log.e(TAG, "Not all fields are filled in MainActivity");
+        while (true) {
+            if (mEditFioPatient.length() < 1 || mEditAgePatient.length() < 1) {
+                Toast.makeText(this, R.string.field_is_empty, Toast.LENGTH_LONG).show();
+                Log.e(TAG, "Not all fields are filled in MainActivity");
+                break;
 
-        } else if (!mEditFioPatient.getText().toString().contains("[а-яА-Я]\\s\\.")) {
-            Toast.makeText(this, R.string.field_fio_contains_invalid_values,
-                    Toast.LENGTH_LONG).show();
-            Log.e(TAG, "Field FIO contains invalid values in MainActivity");
-        } else if (mEditFioPatient.length() > 30 || mEditAgePatient.length() > 3) {
-            Toast.makeText(this, R.string.field_contains_too_big_value, Toast.LENGTH_LONG).show();
-            Log.e(TAG, "Field contains to big value in MainActivity");
+            } else if (!mEditFioPatient.getText().toString().
+                    matches(String.valueOf(R.string.regex_for_fio_main_activity))) {
+                Toast.makeText(this, R.string.field_fio_contains_invalid_values,
+                        Toast.LENGTH_LONG).show();
+                Log.e(TAG, "Field FIO contains invalid values in MainActivity");
+                break;
+            } else if (mEditFioPatient.length() > 70 || mEditAgePatient.length() > 3) {
+                Toast.makeText(this, R.string.field_contains_too_big_value,
+                        Toast.LENGTH_LONG).show();
+                Log.e(TAG, "Field contains too big value in MainActivity");
+                break;
 
+            } else {
+                try {
+                    short agePatient = Short.parseShort(mEditAgePatient.getText().toString());
+                    Patient patient = new Patient(mEditFioPatient.getText().toString(),
+                            agePatient);
+
+                    mEditFioPatient.setText(null);
+                    mEditAgePatient.setText(null);
+
+                    Toast.makeText(this, R.string.btn_save_main_activity_yes,
+                            Toast.LENGTH_LONG).show();
+                } catch (NumberFormatException ex) {
+                    Toast.makeText(this, R.string.btn_save_exception,
+                            Toast.LENGTH_LONG).show();
+                    Log.e(TAG, "Btn save exception in MainActivity", ex);
+                }
+            }
+            break;
         }
-
-        try {
-            short agePatient = Short.parseShort(mEditAgePatient.getText().toString());
-            Patient patient = new Patient(mEditFioPatient.getText().toString(), agePatient);
-
-            mEditFioPatient.setText(null);
-            mEditAgePatient.setText(null);
-
-            Toast.makeText(this, R.string.btn_save_main_activity_yes, Toast.LENGTH_LONG).show();
-        } catch (NumberFormatException ex) {
-            Toast.makeText(this, R.string.btn_save_exception, Toast.LENGTH_LONG).show();
-            Log.e(TAG, "Btn save exception in MainActivity", ex);
-        }
-
     }
 
 
@@ -65,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, PressureActivity.class);
             startActivity(intent);
         } catch (Exception ex) {
-            Log.e(TAG, "Exception in MainActivity, transition dtn to PressureActivity", ex);
+            Log.e(TAG, "Exception in MainActivity, transition btn to PressureActivity", ex);
         }
 
     }
@@ -78,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, VitalsActivity.class);
             startActivity(intent);
         } catch (Exception ex) {
-            Log.e(TAG, "Exception in MainActivity, transition dtn to VitalsActivity", ex);
+            Log.e(TAG, "Exception in MainActivity, transition btn to VitalsActivity", ex);
         }
 
     }

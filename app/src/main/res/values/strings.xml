@@ -7,13 +7,13 @@
     <string name="prompt_age">Возраст пациента</string>
     <string name="btn_save">Сохранить</string>
     <string name="btn_pressure">Показатели давления</string>
-    <string name="btn_health">Показатели здоровья</string>
+    <string name="btn_vitals">Жизненные показатели</string>
     <string name="prompt_upper_pressure">Верхнее давление</string>
     <string name="prompt_lower_pressure">Нижнее давление</string>
     <string name="prompt_pulse">Пульс</string>
     <string name="presence_tachycardia">Наличие тахикардии</string>
-    <string name="cb_tachycardia_yes">Да</string>
-    <string name="cb_tachycardia_no">Нет</string>
+    <string name="check_box_tachycardia_yes">Да</string>
+    <string name="check_box_tachycardia_no">Нет</string>
     <string name="prompt_weight">Вес</string>
     <string name="prompt_steps">Количество шагов</string>
     <string name="btn_save_main_activity_yes">"Пациент внесен в базу!"</string>
@@ -27,4 +27,7 @@
     </string>
     <string name="field_contains_too_big_value">"Поле содержит слишком много символов!"
     </string>
+    <string name="regex_for_fio_main_activity">"^[А-Яа-я]*\\s[А-Яа-я]*\\s[А-Яа-я]*$"</string>
+    <string name="btn_main">"Главная станица"</string>
+    <string name="date_time_pattern">HH:mm yyyy-MM-dd</string>
 </resources>

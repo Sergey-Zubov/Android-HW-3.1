@@ -5,6 +5,46 @@
     android:layout_height="match_parent">
 
 
+    <Button
+        android:id="@+id/btnMainFromVitalsActivity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/btn_corner"
+        android:backgroundTint="@color/colorAccent"
+        android:onClick="btnMainFromVitalsActivityOnClick"
+        android:paddingStart="10dp"
+        android:paddingTop="5dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="5dp"
+        android:text="@string/btn_main"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnPressureFromVitalsActivity"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnPressureFromVitalsActivity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/btn_corner"
+        android:backgroundTint="@color/colorAccent"
+        android:onClick="btnPressureFromVitalsActivityOnClick"
+        android:paddingStart="10dp"
+        android:paddingTop="5dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="5dp"
+        android:text="@string/btn_pressure"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnMainFromVitalsActivity" />
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarVitalsActivity"
         android:layout_width="0dp"
@@ -34,13 +74,12 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="80dp"
         android:layout_marginEnd="20dp"
-        android:ems="6"
         android:hint="@string/prompt_weight"
-        android:inputType="number|numberDecimal"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarVitalsActivity"
-        android:importantForAutofill="no" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbarVitalsActivity" />
 
     <EditText
         android:id="@+id/editSteps"
