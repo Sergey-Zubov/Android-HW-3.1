@@ -23,11 +23,12 @@
     <string name="field_is_empty">"Заполните все поля!"</string>
     <string name="field_fio_contains_invalid_values">"В поле "ФИО" внесены недопустимые символы!"
     </string>
-    <string name="field_steps_contains_invalid_values">"В поле "Количество шагов" слишком большое число!"
+    <string name="field_steps_contains_invalid_values">
+        "В поле "Количество шагов" слишком большое число!"
     </string>
     <string name="field_contains_too_big_value">"Поле содержит слишком много символов!"
     </string>
-    <string name="regex_for_fio_main_activity">"^[А-Яа-я]*\\s[А-Яа-я]*\\s[А-Яа-я]*$"</string>
+    <string name="regex_for_fio_main_activity">"([А-ЯЁ][а-яё]+[\\-\\s]?){3,}"</string>
     <string name="btn_main">"Главная станица"</string>
     <string name="date_time_pattern">HH:mm yyyy-MM-dd</string>
 </resources>

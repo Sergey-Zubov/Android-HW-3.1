@@ -34,8 +34,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.e(TAG, "Not all fields are filled in MainActivity");
                 break;
 
-            } else if (!mEditFioPatient.getText().toString().
-                    matches(String.valueOf(R.string.regex_for_fio_main_activity))) {
+            } else if (!mEditFioPatient.getText().toString().matches(getString(R.string.regex_for_fio_main_activity))) {
                 Toast.makeText(this, R.string.field_fio_contains_invalid_values,
                         Toast.LENGTH_LONG).show();
                 Log.e(TAG, "Field FIO contains invalid values in MainActivity");

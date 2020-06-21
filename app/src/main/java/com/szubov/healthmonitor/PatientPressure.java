@@ -14,11 +14,13 @@ public class PatientPressure {
         return dateTimeMeasurement;
     }
 
-    public PatientPressure(short upperPressure, short lowerPressure, short pulse, boolean tachycardia) {
+    public PatientPressure(short upperPressure, short lowerPressure, short pulse,
+                           boolean tachycardia, String dateTimeMeasurement) {
         this.upperPressure = upperPressure;
         this.lowerPressure = lowerPressure;
         this.pulse = pulse;
         this.tachycardia = tachycardia;
+        this.dateTimeMeasurement = dateTimeMeasurement;
     }
 
     @Override
@@ -31,6 +33,8 @@ public class PatientPressure {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         PatientPressure patientPressure = (PatientPressure) o;
-        return dateTimeMeasurement == patientPressure.dateTimeMeasurement || (dateTimeMeasurement != null && dateTimeMeasurement.equals(patientPressure.getDateTimeMeasurement()));
+        return dateTimeMeasurement == patientPressure.dateTimeMeasurement ||
+                (dateTimeMeasurement != null && dateTimeMeasurement.equals(patientPressure.
+                        getDateTimeMeasurement()));
     }
 }

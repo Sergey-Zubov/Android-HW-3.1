@@ -24,6 +24,7 @@ public class PressureActivity extends AppCompatActivity {
     private CheckBox mCheckBoxTachycardiaNo;
     private CheckBox mCheckBoxTachycardiaYes;
     private static final String TAG = "MyApp";
+    Map<String, PatientPressure> patientPressureMap = new TreeMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,13 +97,12 @@ public class PressureActivity extends AppCompatActivity {
                     }
 
                     DateFormat dateTimeFormat = new SimpleDateFormat(getString
-                            (R.string.date_time_pattern), Locale.getDefault());
+                            (R.string.date_time_pattern),
+                            Locale.getDefault());
                     String dateTime = dateTimeFormat.format(new Date());
 
-                    Map<String, PatientPressure> patientPressureMap = new TreeMap<>();
-                    patientPressureMap.put(dateTime, (new PatientPressure(mUpperPressure,
-                            mLowerPressure,
-                            mPulse, mTachycardia)));
+                    patientPressureMap.put(dateTime, new PatientPressure(mUpperPressure,
+                            mLowerPressure, mPulse, mTachycardia, dateTime));
 
                     mEditUpperPressure.setText(null);
                     mEditLowerPressure.setText(null);

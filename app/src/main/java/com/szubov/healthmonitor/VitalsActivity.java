@@ -7,14 +7,15 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 public class VitalsActivity extends AppCompatActivity {
 
     private EditText mEditWeight;
     private EditText mEditSteps;
     private static final String TAG = "MyApp";
+    List<PatientVitals> patientVitalsSet = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +52,6 @@ public class VitalsActivity extends AppCompatActivity {
                     float mWeight = Float.parseFloat(mEditWeight.getText().toString());
                     short mSteps = Short.parseShort(mEditSteps.getText().toString());
 
-                    Set<PatientVitals> patientVitalsSet = new HashSet<>();
                     patientVitalsSet.add(new PatientVitals(mWeight, mSteps));
 
                     mEditWeight.setText(null);
